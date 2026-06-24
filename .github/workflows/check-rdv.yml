@@ -3,7 +3,7 @@ name: Check RDV
 on:
     push:
     schedule:
-        - cron: "*/5 * * * *"
+        - cron: "*/1 * * * *"
     workflow_dispatch:
 
 concurrency:
