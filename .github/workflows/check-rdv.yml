@@ -1,9 +1,8 @@
 name: Check RDV
 
 on:
-    push:
     schedule:
-        - cron: "*/1 * * * *"
+        - cron: "*/5 * * * *"
     workflow_dispatch:
 
 concurrency:
