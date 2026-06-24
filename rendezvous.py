@@ -56,6 +56,7 @@ def main():
             print("✅ RDV toujours disponible, notification déjà envoyée")
         else:
             print("❌ Aucun créneau")
+            alert_slot_found()
 
         STATE_FILE.write_text("1" if available else "0")
 
