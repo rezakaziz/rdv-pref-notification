@@ -1,6 +1,12 @@
 import requests
 import subprocess
 from pathlib import Path
+from datetime import datetime
+
+
+def ts():
+    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 
 URL = "https://rdv.anct.gouv.fr/prendre_rdv?motif_name_with_location_type=renouvellement_de_recepisses_arrives_a_echeance_-public_office&public_link_organisation_id=2458"
 
@@ -50,13 +56,13 @@ def main():
         previous = STATE_FILE.read_text().strip() if STATE_FILE.exists() else "0"
 
         if available and previous != "1":
-            print("✅ RDV DISPONIBLE")
+            print(f"[{ts()}] ✅ RDV DISPONIBLE")
             alert_slot_found()
         elif available:
-            print("✅ RDV toujours disponible, notification déjà envoyée")
-        else:
-            print("❌ Aucun créneau")
+            print(f"[{ts()}] ✅ RDV toujours disponible, notification déjà envoyée")
             alert_slot_found()
+        else:
+            print(f"[{ts()}] ❌ Aucun créneau")
 
         STATE_FILE.write_text("1" if available else "0")
 
