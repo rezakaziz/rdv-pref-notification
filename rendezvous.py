@@ -39,4 +39,5 @@ if check_slots():
     print("✅ RDV DISPONIBLE !!!")
     send_notification()
 else:
+    send_notification()
     print("❌ Aucun créneau")
