@@ -23,6 +23,6 @@ jobs:
 
             - run: pip install -r requirements.txt
 
-            - run: python check_rdv.py
+            - run: python rendezvous.py
               env:
                   NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
